@@ -1,6 +1,6 @@
 #+title: Internet Security
 
-* Table of Contents :toc:
+* Table of Contents :toc:noexport:
 - [[#introduction][Introduction]]
 - [[#readings-and-additional-resources][Readings and Additional Resources]]
 - [[#properties-of-secure-communication][Properties of Secure Communication]]
@@ -99,7 +99,7 @@ This method is used by large websites to distribute the load of incoming request
 
 * DNS-based content delivery
 
-Content Distribution Networks (CDNs) also use DNS-based techniques to distribute content but using more complex strategies. For example CDNs distribute the load amongst multiple servers at a single location, but also distribute these servers across the world. When accessing the name of the service using DNS, the CDN computes the ‘nearest edge server’ and returns its IP address to the DNS client. It uses sophisticated techniques based on network topology and current link characteristics to determine the nearest server. This results in the content being moved ‘closer’ to the DNS client which increases responsiveness and availability. CDNs can react quickly to changes in link characteristics as their TTL is lower than that in RRDNS. 
+Content Distribution Networks (CDNs) also use DNS-based techniques to distribute content but using more complex strategies. For example, CDNs distribute the load amongst multiple servers at a single location, but also distribute these servers across the world. When accessing the name of the service using DNS, the CDN computes the ‘nearest edge server’ and returns its IP address to the DNS client. It uses sophisticated techniques based on network topology and current link characteristics to determine the nearest server. This results in the content being moved ‘closer’ to the DNS client which increases responsiveness and availability. CDNs can react quickly to changes in link characteristics as their TTL is lower than that in RRDNS. 
 
 * Fast-Flux Service Networks
 
@@ -148,7 +148,7 @@ In this topic, we continue our discussion on approaches to infer network reputat
 
 But in practice, it is not feasible to monitor the traffic of all networks to detect malicious behaviors from the data plane. In addition, the disadvantage of this approach is that it may take a long time until a very large fraction of IPs makes it to a blacklist, and 2) the approach does not differentiate well between networks that are legitimate but abused, and those which are likely operated by cyberactors. 
 
-This topic discusses a complementary approach – ASwatch which uses information exclusively from the control plane (ie. routing behavior) to identify malicious networks. Also, this approach aims to detect malicious networks that are likely run by cyberactors, or bulletproof as they are called, rather than networks that may be badly abused.
+This topic discusses a complementary approach – ASwatch which uses information exclusively from the control plane (ie. routing behavior) to identify malicious networks. Also, this approach aims to detect malicious networks that are likely run by cyberactors, or =bulletproof= as they are called, rather than networks that may be badly abused.
 
 #+CAPTION: Connectivity Snapshot of AS which is operated by Cyber Criminals
 #+NAME: fig:interconnection_patterns_1
@@ -178,7 +178,7 @@ In this section, we look at a system to predict the likelihood of a security bre
 
 There are 3 classes of features used for this model:
 
-1. Mismanagement symptoms* – If there are misconfigurations in an organization’s network, it indicates that there may not be policies in place to prevent such attacks or may not have the technological capability to detect these failures. This increases the likelihood of a breach. The features used are:
+1. *Mismanagement symptoms* – If there are misconfigurations in an organization’s network, it indicates that there may not be policies in place to prevent such attacks or may not have the technological capability to detect these failures. This increases the likelihood of a breach. The features used are:
 
         i. *Open Recursive Resolvers* – misconfigured open DNS resolvers
         ii. *DNS Source Port Randomization* – many servers still do not implement this

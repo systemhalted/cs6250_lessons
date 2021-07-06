@@ -184,7 +184,7 @@ There are 3 classes of features used for this model:
         ii. *DNS Source Port Randomization* – many servers still do not implement this
         iii. *BGP Misconfiguration* – short-lived routes can cause unnecessary updates to the global routing table
         iv. *Untrusted HTTPS Certificates* – can detect the validity of a certificate by TLS handshake
-        Open SMTP Mail Relays – servers should filter messages so that only those in the same domain can send mails/messages.
+        v. *Open SMTP Mail Relays* – servers should filter messages so that only those in the same domain can send mails/messages.
 
 2. *Malicious Activities* – Another factor to consider is the level of malicious activities that are seen to originate from the organization’s network and infrastructure. We can determine this using spam traps, darknet monitors, DNS monitors, etc. We create a reputation blacklist of the IP addresses that are involved in some malicious activities. There are 3 such types of malicious activities:
 

@@ -95,7 +95,7 @@ In this lecture we will talk about some of the techniques that the attackers hav
 
 * Round Robin DNS (RRDNS)
 
-This method is used by large websites to distribute the load of incoming requests to several servers at a single physical location. It responds to a DNS request with a list of DNS A records, which it then cycles through in a round robin manner. The DNS client can then choose a record using different strategies –choose the first record each time, use the closest record in terms of network proximity, etc. Each A record also has a Time to Live (TTL) for this mapping which specifies the number of seconds the response is valid. If the lookup is repeated while the mapping is still active, the DNS client will receive the same set of records, albeit in a different order.
+This method is used by large websites to distribute the load of incoming requests to several servers at a single physical location. It responds to a DNS request with a list of DNS A records, which it then cycles through in a round robin manner. The DNS client can then choose a record using different strategies – choose the first record each time, use the closest record in terms of network proximity, etc. Each A record also has a Time to Live (TTL) for this mapping which specifies the number of seconds the response is valid. If the lookup is repeated while the mapping is still active, the DNS client will receive the same set of records, albeit in a different order.
 
 * DNS-based content delivery
 
@@ -181,21 +181,29 @@ There are 3 classes of features used for this model:
 1. *Mismanagement symptoms* – If there are misconfigurations in an organization’s network, it indicates that there may not be policies in place to prevent such attacks or may not have the technological capability to detect these failures. This increases the likelihood of a breach. The features used are:
 
         i. *Open Recursive Resolvers* – misconfigured open DNS resolvers
+        
         ii. *DNS Source Port Randomization* – many servers still do not implement this
-        iii. *BGP Misconfiguration* – short-lived routes can cause unnecessary updates to the global routing table
-        iv. *Untrusted HTTPS Certificates* – can detect the validity of a certificate by TLS handshake
+        
+        iii. *BGP Misconfiguration* – short-lived routes can cause unnecessary updates to the global routing table.
+        
+        iv. *Untrusted HTTPS Certificates* – can detect the validity of a certificate by TLS handshake.
+        
         v. *Open SMTP Mail Relays* – servers should filter messages so that only those in the same domain can send mails/messages.
 
 2. *Malicious Activities* – Another factor to consider is the level of malicious activities that are seen to originate from the organization’s network and infrastructure. We can determine this using spam traps, darknet monitors, DNS monitors, etc. We create a reputation blacklist of the IP addresses that are involved in some malicious activities. There are 3 such types of malicious activities:
 
             i. Capturing spam activity – for example, CBL, SBL, SpamCop
+            
             ii. Capturing phishing and malware activities – for example, PhishTank, SURBL
+            
             iii. Capturing scanning activity – for example, Dshield, OpenBL
 
-3. Security Incident Reports – Data based on actual security incidents gives us the ground truth on which to train our machine learning model on. The system uses 3 collections of such reports to ensure a wider coverage area:
+3. *Security Incident Reports* – Data based on actual security incidents gives us the ground truth on which to train our machine learning model on. The system uses 3 collections of such reports to ensure a wider coverage area:
 
                 i. *VERIS Community Database* – This is a public effort to collect cyber security incidents in a common format. It is maintained by the Verizon RISK team. It contains more than 5000 incident reports.
+                
                 ii. *Hackmageddon* – This is an independently maintained blog that aggregates security incidents on a monthly basis.
+              
                 iii. *The Web Hacking Incidents Database* – This is an actively maintained repository for cyber security incidents.
 
 This system uses a Random Forest (RF) classifier and compares it to a baseline provided by a Support Vector Machine (SVM). It uses 258 features – the features described above (divided into features based on the timespan for which they are valid), secondary features based on statistics from the other features, and the size of the organization. These inputs are processed, then fed to a RF which produces a risk probability (a float). By thresholding this value, we obtain the binary class label. Since this data is sequential, the training-testing splits of the data are strictly based on the time of each datapoint. The best combination of parameters gives this model an accuracy of 90%!
@@ -203,8 +211,6 @@ This system uses a Random Forest (RF) classifier and compares it to a baseline p
 * Traffic Attraction Attacks: BGP Hijacking
 
 BGP hijacking attacks can be classified into the following groups:
-
- 
 
 1. *Classification by Affected Prefix*: In this class of hijacking attacks, we are primarily concerned with the IP prefixes that are advertised by BGP. There are different ways the prefix can be targeted, such as:
 
@@ -215,8 +221,6 @@ b. *Sub-prefix hijacking*: This is an extension of exact prefix hijacking, excep
 Example: A given hijacking AS labelled AS2 announces that it has a path to prefix 10.10.0.0/24 which is a part of 10.10.0.0/16 owned by AS1.
 
 c. *Squatting*: In this type of attack, the hijacking AS announces a prefix that has not yet been announced by the owner AS.
-
- 
 
 2. *Classification by AS-Path announcement*: In this class of attacks, an illegitimate AS announces the AS-path for a prefix for which it doesn’t have ownership rights. There are different ways this can be achieved:
 

@@ -311,6 +311,7 @@ in further SDN design:
   plane.
 - Distributed state management.
 
+
 Initially, many people thought separating the control and data planes
 was a bad idea, since there was no clear idea as to how these networks
 would operate if a controller failed. There was also some skepticism
@@ -459,7 +460,7 @@ From there it is able to construct the forwarding table, which it
 consults for the forwarding function.
 
 #+CAPTION: image
-[[./MD_figures/7_separation_1.png]]
+[[./MD_Figures/7_separation_1.png]]
 
 *In the SDN approach*, on the other hand, there is a remote controller
 that computes and distributes the forwarding tables to be used by every
@@ -474,7 +475,7 @@ increasingly open and publicly available, which speeds up innovation in
 the field.
 
 #+CAPTION: image
-[[./MD_figures/7_separation_2.png]]
+[[./MD_Figures/7_separation_2.png]]
 
 * The SDN Architecture
   :PROPERTIES:
@@ -495,7 +496,7 @@ In the figure below we see the main components of an SDN network:
   about the network elements with the help of SDN controller.
 
 #+CAPTION: image
-[[./MD_figures/7_architecture_1.png]]
+[[./MD_Figures/7_architecture_1.png]]
 
 Let us now take a look at the four defining features in an SDN
 architecture:
@@ -578,7 +579,7 @@ Let's look at each layer in detail starting from the bottom:
    controllers to provide highly scalable services.
 
 #+CAPTION: image
-[[./MD_figures/7_controller_1.png]]
+[[./MD_Figures/7_controller_1.png]]
 
 * Revisiting the Motivation for SDN
   :PROPERTIES:
@@ -634,7 +635,7 @@ problems to be viewed as tractable pieces, allowing for newer networking
 abstractions and simplifying networking management, allowing innovation.
 
 #+CAPTION: image
-[[./MD_figures/8_revisiting_1.png]]
+[[./MD_Figures/8_revisiting_1.png]]
 
 Traditionally viewed, computer networks have three planes of
 functionality, which are all abstract logical concepts:
@@ -695,7 +696,7 @@ a SDN controller application. This approach has several advantages:
    combined sequentially.
 
 #+CAPTION: image
-[[./MD_figures/8_advantages_1.png]]
+[[./MD_Figures/8_advantages_1.png]]
 
 * The SDN Landscape
   :PROPERTIES:
@@ -707,7 +708,7 @@ landscape of the SDN architecture can be decomposed into layers as shown
 in the figure below.
 
 #+CAPTION: image
-[[./MD_figures/8_landscape_1.png]]
+[[./MD_Figures/8_landscape_1.png]]
 
 Each layer performs its own functions through different technologies.
 The figure above presents three perspectives of the SDN landscape: (a) a
@@ -717,7 +718,7 @@ technologies that have been developed. Also, for some representative
 technologies we are referencing links to actively maintained tutorials.
 
 #+CAPTION: image
-[[./MD_figures/8_landscape_2.png]]
+[[./MD_Figures/8_landscape_2.png]]
 
 1. *Infrastructure:* Similar to traditional networks, an SDN
    infrastructure consists of networking equipment (routers, switches
@@ -975,7 +976,7 @@ was built based on Floodlight, an open-source single-instance SDN
 controller. The below figure depicts the high level architecture.
 
 #+CAPTION: image
-[[./MD_figures/8_onos_1.png]]
+[[./MD_Figures/8_onos_1.png]]
 
 Owing to the distributed architecture of ONOS, there are several ONOS
 instances running in a cluster. The management and sharing of the
@@ -1048,7 +1049,7 @@ as OpenFlow, which targets to populate forwarding rules in fixed
 function switches:
 
 #+CAPTION: image
-[[./MD_figures/8_dataplane_1.png]]
+[[./MD_Figures/8_dataplane_1.png]]
 
 The following are the primary goals of P4:
 
@@ -1264,7 +1265,7 @@ example of application-specific peering, and let's see how a participant
 network expresses example policies:
 
 #+CAPTION: image
-[[./MD_figures/8_example_1.png]]
+[[./MD_Figures/8_example_1.png]]
 
 According to AS A's outbound policy, the HTTP traffic with destination
 port 80 is forwarded to AS B and HTTPS traffic with destination port 443
